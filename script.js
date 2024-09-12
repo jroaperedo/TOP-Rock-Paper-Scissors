@@ -28,26 +28,19 @@ function playGame(){
 
     let playerScore = 0;
     let computerScore = 0;
-    let scoreboard = "Player Score: " + playerScore + " | Computer Score: " + computerScore;
-
-    //Round 1
+    let draw = 0;
+    let scoreboard = "";
+    
+    for (let round = 1; round<6;round++){
     let humanChoice1 = getHumanChoice();
-    let computerChoice1 = getComputerChoice();
-    
-    let result1 = playRound(humanChoice1, computerChoice1);
+    let computerChoice1 = getComputerChoice(); 
+    let result = playRound(humanChoice1, computerChoice1);
+    scoreboard = "Round " + round + ": " + playerScore + " Player | " + computerScore + " Computer | " + draw + " draws";
+    console.log(result, scoreboard);
+    }
 
-    console.log(result1.message);
-    console.log(result1.scoreboard);
-
-    //Round 2
-    let humanChoice2 = getHumanChoice();
-    let computerChoice2 = getComputerChoice();
-    
-    let result2 = playRound(humanChoice2, computerChoice2);
-
-    console.log(result1.message);
-    console.log(result1.scoreboard);
-
+    console.log("Game Over!")
+   
     function playRound(humanChoice, computerChoice) {    
         let message = "null";
         let result = "null";
@@ -83,16 +76,18 @@ function playGame(){
     //UPDATE result based on outcome and update score
 
         if (result === "draw") {
-            message = "DRAW! " + humanChoice + " and " + computerChoice + " are even.";
+            message = "Computer picked " + computerChoice + ". DRAW! " + humanChoice + " and " + computerChoice + " are even.";
+            draw +=1;
         } else if (result === "win") {
-            message = "You win! " + humanChoice + " beats " + computerChoice + ".";
+            message = "Computer picked " + computerChoice + ". You win! " + humanChoice + " beats " + computerChoice + ".";
             playerScore += 1;
         } else if (result === "lose") {
-            message = "You lose! " + computerChoice + " beats " + humanChoice + ".";
+            message = "Computer picked " + computerChoice + ". You lose! " + computerChoice + " beats " + humanChoice + ".";
             computerScore += 1;
         }
+        
+        console.log(message);
 
-        return{message};
     }
 
 
