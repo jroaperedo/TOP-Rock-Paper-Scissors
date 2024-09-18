@@ -17,12 +17,33 @@ function getComputerChoice() {
     return y;
 }
 
-function getHumanChoice() {
-    let userChoice = "null"
-    let userInput = prompt("Pick Rock, Paper, or Scissors");
-    userChoice = userInput.toLowerCase();
-    return userChoice;
-}
+//Link buttons to humanChoice
+const rock=document.querySelector("#rock");
+const paper=document.querySelector("#paper");
+const scissors=document.querySelector("#scissors");
+
+rock.addEventListener("click",()=>{
+    let humanChoice = "rock";
+    console.log(humanChoice);
+});
+
+paper.addEventListener("click",()=>{
+    let humanChoice = "paper";
+    console.log(humanChoice);
+});
+
+scissors.addEventListener("click",()=>{
+    let humanChoice = "scissors";
+    console.log(humanChoice);
+});
+
+
+//function getHumanChoice() {
+//    let userChoice = "null"
+//    let userInput = prompt("Pick Rock, Paper, or Scissors");
+//    userChoice = userInput.toLowerCase();
+//    return userChoice;
+//}
 
 function playGame(){
 
@@ -31,13 +52,27 @@ function playGame(){
     let draw = 0;
     let scoreboard = "";
     
-    for (let round = 1; round<6;round++){
-    let humanChoice1 = getHumanChoice();
-    let computerChoice1 = getComputerChoice(); 
-    let result = playRound(humanChoice1, computerChoice1);
+    //for (let round = 1; round<6;round++){
+    //let humanChoice1 = getHumanChoice();
+    //let computerChoice1 = getComputerChoice(); 
+    //let result = playRound(humanChoice1, computerChoice1);
+    //scoreboard = "Round " + round + ": " + playerScore + " Player | " + computerScore + " Computer | " + draw + " draws";
+    //console.log(result, scoreboard);
+    //}
+
+    //user makes a selection
+    //selection gets stored in humanChoice
+    //fetch computerChoice
+    //compare choices, determine a winner
+    //update scoreboard
+    //once either hits 5 wins, announce a winner and reset the score
+
+
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice(); 
+    let result = playRound(humanChoice, computerChoice);
     scoreboard = "Round " + round + ": " + playerScore + " Player | " + computerScore + " Computer | " + draw + " draws";
     console.log(result, scoreboard);
-    }
 
     console.log("Game Over!")
    
