@@ -5,8 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper Rock Scissors</title>
     <script src="script.js" defer></script>
+    <style>
+        .scoreboard{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+        }
+        ul{
+            padding: 0px;
+        }
+        h1{
+            margin-bottom: 0px;
+        }
+    </style>
+
 </head>
 <body>
+    <div class="scoreboard">
+        <h1>Scoreboard</h1>
+        <ul>
+            <li id="playerScore"></li>
+            <li id="computerScore"></li>
+            <li id="message"></li>
+        </ul>
+    </div>
     <button id="rock">Rock</button>
     <button id="paper">Paper</button>
     <button id="scissors">Scissors</button>
